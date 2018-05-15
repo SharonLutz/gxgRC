@@ -25,7 +25,8 @@ For 1,000 subjects, we generate X1 to have a MAF of 0.2, we generate X2 to have 
 
 ```
 library(gxgRC)
-gxgRC(n=1000,betaB=0.15,betaI=c(0.1,0.2),MAF1=0.2,MAF2=0.2,alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",nSim=100)
+gxgRC(n=1000,betaB=0.15,betaI=c(0.1,0.2),MAF1=0.2,MAF2=0.2,alpha_level=0.05,plot.pdf=T,
+plot.name="gxgRC.pdf",nSim=100)
 ```
 
 ## Output
