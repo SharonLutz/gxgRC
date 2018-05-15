@@ -33,6 +33,8 @@ plot.name="gxgRC.pdf",nSim=100)
 For this example, we get the following matrix and corresponding plot:
 
 ```
-
+     naiveP intP0 intP1 intP2
+[1,]  0.970 0.646 0.907 0.599
+[2,]  0.981 0.681 0.901 0.577
 ```
 <img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRC.png" width="600">
