@@ -8,7 +8,10 @@ gxgRC
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-gxgRC(n = 1000, betaB = 0.1, beta0 = 0, beta1 = 0.2, beta2 = 0.2, betaI = c(0.1, 0.2), MAF1 = 0.2, MAF2 = 0.2, varY = 1, alpha_level = 0.05, plot.pdf = T, plot.name = "gxgRC.pdf", nSim = 1000)
+gxgRC(n = 1000, betaB = 0.1, beta0 = 0, beta1 = 0.1, beta2 = 0.1, betaI = c(0,0.1, 0.2), 
+MAF1 = 0.2, MAF2 = 0.05, varY = 1, alpha_level = 0.05, plot.pdf = T, plot.name = "gxgRC.pdf",
+nSim = 1000, SEED=1)
+               
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -50,6 +53,9 @@ is the name of the plot
 }
   \item{nSim}{
 is the number of simulations
+}
+  \item{SEED}{
+sets the seed
 }
 }
 \details{

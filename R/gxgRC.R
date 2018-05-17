@@ -1,6 +1,9 @@
-gxgRC <-
-function(n=1000,betaB=0.1,beta0=0,beta1=0.2,beta2=0.2,betaI=c(0.1,0.2),MAF1=0.2,MAF2=0.2,varY=1,
-                  alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",nSim=1000){
+
+# Generate a genexgene interaction
+gxgRC <- function(n=1000,betaB=0.1,beta0=0,beta1=0.1,beta2=0.1,betaI=c(0,0.1,0.2),MAF1=0.2,MAF2=0.05,varY=1,
+                  alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",nSim=1000,SEED=1){
+  
+  set.seed(SEED)
   
   # Error checks
   if(MAF1<0|MAF1>1){stop("Error: MAF1 must be between 0 and 1")}
@@ -12,13 +15,13 @@ function(n=1000,betaB=0.1,beta0=0,beta1=0.2,beta2=0.2,betaI=c(0.1,0.2),MAF1=0.2,
   
   # Create a total results matrix
   mat_total <- matrix(0,nrow=length(betaI),ncol=4)
-  colnames(mat_total) <- c("naiveP","intP0","intP1","intP2")
+  colnames(mat_total) <- c("NOintP","intP0","intP1","intP2")
   
   for(i in 1:nSim){
     
     # Create a results matrix for each simulation
     mat_results <- matrix(0,nrow=length(betaI),ncol=4)
-    colnames(mat_results) <- c("naiveP","intP0","intP1","intP2")
+    colnames(mat_results) <- c("NOintP","intP0","intP1","intP2")
     
     for(bI.ind in 1:length(betaI)){
       
@@ -40,16 +43,16 @@ function(n=1000,betaB=0.1,beta0=0,beta1=0.2,beta2=0.2,betaI=c(0.1,0.2),MAF1=0.2,
       PX11GX21 <- exp(betaB0+betaB*1)/(1+exp(betaB0+betaB*1)) #P(X1=1|X2=1)
       
       X1 <- rep(1,n)
-      ind2 <- runif(n,0,1) # Generate a random uniform to generate X1
-      X1[ind2>PX11GX20&X2==0] <- 0 #length(X1[X2==0&X1==1])/length(X1[X2==0])
-      X1[ind2>PX11GX21&X2==1] <- 0 #length(X1[X2==1&X1==1])/length(X1[X2==1])
+      ind1 <- runif(n,0,1) # Generate a random uniform to generate X1
+      X1[ind1>PX11GX20&X2==0] <- 0 #length(X1[X2==0&X1==1])/length(X1[X2==0])
+      X1[ind1>PX11GX21&X2==1] <- 0 #length(X1[X2==1&X1==1])/length(X1[X2==1])
       
       # Generate Y based on X1 and X2
-      Y <- rnorm(n,beta0+beta1*X1+beta2*X2+betaI*X1*X2,sqrt(varY))
+      Y <- rnorm(n,beta0+beta1*X1+beta2*X2+betaI[bI.ind]*X1*X2,sqrt(varY))
       
       # fit1: No interaction
       fit1 <- lm(Y~X1+X2)
-      if(summary(fit1)$coefficients[2,4] < alpha_level){mat_results[bI.ind,"naiveP"] <- mat_results[bI.ind,"naiveP"] +1 }
+      if(summary(fit1)$coefficients[2,4] < alpha_level){mat_results[bI.ind,"NOintP"] <- mat_results[bI.ind,"NOintP"] +1 }
       
       # fit2: With interaction
       fit2 <- lm(Y~X1+X2+X1*X2)
@@ -88,15 +91,15 @@ function(n=1000,betaB=0.1,beta0=0,beta1=0.2,beta2=0.2,betaI=c(0.1,0.2),MAF1=0.2,
     # Put plot code here
     pdf(plot.name)
     plot(-1,-1, xlim=c(min(betaI),max(betaI)), ylim=c(0,1),xlab="betaI values",ylab="")
-    points(betaI,mat_total[,"naiveP"],type="b",lty=2,col=1,pch=1)
+    points(betaI,mat_total[,"NOintP"],type="b",lty=2,col=1,pch=1)
     points(betaI,mat_total[,"intP0"],type="b",lty=3,col=2,pch=2)
     points(betaI,mat_total[,"intP1"],type="b",lty=4,col=3,pch=3)
     points(betaI,mat_total[,"intP2"],type="b",lty=5,col=4,pch=4)
-    legend("topleft",lty=c(2:5),col=c(1:4),pch=c(1:4),legend=c("naiveP","intP0","intP1","intP2"),cex = 0.6)
+    legend("topleft",lty=c(2:5),col=c(1:4),pch=c(1:4),legend=c("NOintP","intP0","intP1","intP2"))
     dev.off()
   }
   
   # Write Table
   list(mat_total)
   
-}
+} # End of function
