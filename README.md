@@ -33,8 +33,8 @@ For this example, we get the following matrix and corresponding plot:
 
 ```
      NOintP intP0 intP1 intP2
-[1,]   0.30  0.22  0.13  0.06
-[2,]   0.53  0.22  0.42  0.22
-[3,]   0.79  0.30  0.85  0.62
+[1,]   0.30  0.12  0.07  0.04
+[2,]   0.53  0.15  0.26  0.08
+[3,]   0.79  0.19  0.74  0.46
 ```
 <img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRC.png" width="600">
