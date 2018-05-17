@@ -21,11 +21,10 @@ library(gxgRC)
 ```
 
 ## Example
-For 1,000 subjects, we generate X1 to have a MAF of 0.2, we generate X2 to have an MAF of 0.2, and to have an association of 0.15 with X1. The interaction between X1 and X2 on Y is generated at 0.1 and 0.2.
+For 1,000 subjects, we generate X1 to have a MAF of 0.2, we generate X2 to have an MAF of 0.2, and to have an association of 0.15 with X1. The interaction between X1 and X2 on Y is generated at 0, 0.1 and 0.2.
 
 ```
-library(gxgRC)
-gxgRC(n=1000,betaB=0.15,betaI=c(0.1,0.2),MAF1=0.2,MAF2=0.2,alpha_level=0.05,plot.pdf=T,
+gxgRC(n=1000,betaB=0.15,betaI=c(0,0.1,0.2),MAF1=0.2,MAF2=0.2,alpha_level=0.05,plot.pdf=T,
 plot.name="gxgRC.pdf",nSim=100)
 ```
 
@@ -33,8 +32,9 @@ plot.name="gxgRC.pdf",nSim=100)
 For this example, we get the following matrix and corresponding plot:
 
 ```
-     naiveP intP0 intP1 intP2
-[1,]  0.970 0.646 0.907 0.599
-[2,]  0.981 0.681 0.901 0.577
+     NOintP intP0 intP1 intP2
+[1,]   0.30  0.22  0.13  0.06
+[2,]   0.53  0.22  0.42  0.22
+[3,]   0.79  0.30  0.85  0.62
 ```
 <img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRC.png" width="600">
