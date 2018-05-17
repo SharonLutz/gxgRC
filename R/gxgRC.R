@@ -57,7 +57,7 @@ gxgRC <- function(n=1000,betaB=0.1,beta0=0,beta1=0.1,beta2=0.1,betaI=c(0,0.1,0.2
       # fit2: With interaction
       fit2 <- lm(Y~X1+X2+X1*X2)
       # For X2=0, beta1
-      if(summary(fit2)$coefficients[2,4] < alpha_level){mat_results[bI.ind,"intP0"] <- mat_results[bI.ind,"intP0"] +1 }
+      if(summary(fit2)$coefficients[2,4] < alpha_level/3){mat_results[bI.ind,"intP0"] <- mat_results[bI.ind,"intP0"] +1 }
       
       # For X2=1, beta1+betaI
       # var(ax+by)=a^2var(x) + b^2var(y) + 2abcov(x,y)
@@ -66,7 +66,7 @@ gxgRC <- function(n=1000,betaB=0.1,beta0=0,beta1=0.1,beta2=0.1,betaI=c(0,0.1,0.2
       var1 <- vcov(fit2)[2,2] + vcov(fit2)[4,4] + 2*vcov(fit2)[2,4]
       t1 <- est1/sqrt(var1)
       pval1 <- 2*pt(abs(t1), summary(fit2)$df[2], lower=FALSE)
-      if(pval1 < alpha_level){ mat_results[bI.ind,"intP1"] <- mat_results[bI.ind,"intP1"] +1 }
+      if(pval1 < alpha_level/3){ mat_results[bI.ind,"intP1"] <- mat_results[bI.ind,"intP1"] +1 }
       
       # For X2=2, beta1+2*betaI
       # var(ax+by)=a^2var(x) + b^2var(y) + 2abcov(x,y)
@@ -75,7 +75,7 @@ gxgRC <- function(n=1000,betaB=0.1,beta0=0,beta1=0.1,beta2=0.1,betaI=c(0,0.1,0.2
       var2 <- vcov(fit2)[2,2] + 4*vcov(fit2)[4,4] + 4*vcov(fit2)[2,4]
       t2 <- est2/sqrt(var2)
       pval2 <- 2*pt(abs(t2), summary(fit2)$df[2], lower=FALSE)
-      if(pval2 < alpha_level){ mat_results[bI.ind,"intP2"] <- mat_results[bI.ind,"intP2"] +1 }
+      if(pval2 < alpha_level/3){ mat_results[bI.ind,"intP2"] <- mat_results[bI.ind,"intP2"] +1 }
       
     } # End of betaI loop
     
