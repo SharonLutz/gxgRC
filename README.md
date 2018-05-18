@@ -1,5 +1,5 @@
 ## gxgRC
-The gxgRC R package computes power analyses for gene by gene interactions of both rare and common variants.
+The gxgRC R package computes the power to determine the association of a SNP of interest with the outcome given that another SNP in the region is in weak LD with the SNP of interest.
 
 ## Installation
 ```
@@ -21,7 +21,7 @@ library(gxgRC)
 ```
 
 ## Example
-For 1,000 subjects, we generate X1 to have a MAF of 0.2, we generate X2 to have an MAF of 0.2, and to have an association of 0.15 with X1. The interaction between X1 and X2 on Y is generated at 0, 0.1 and 0.2.
+For 1,000 subjects, we generate X1 to have a MAF of 0.2 and X2 to have an MAF of 0.2. The interaction between X1 and X2 on Y varies from 0, 0.1, to 0.2.
 
 ```
 gxgRC(n=1000,betaB=0.15,betaI=c(0,0.1,0.2),MAF1=0.2,MAF2=0.2,alpha_level=0.05,plot.pdf=T,
