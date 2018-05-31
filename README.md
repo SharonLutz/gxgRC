@@ -22,7 +22,7 @@ library(gxgRC)
 ?gxgRC # For details on this function
 ```
 
-## Example
+## Simulations Scenario
 For 1,000 subjects, we generate X1 to have a MAF of 0.20 and X2 to have an MAF of 0.05. The interaction between X1 and X2 on Y varies from 0, 0.1, to 0.2.
 
 ```
@@ -30,7 +30,7 @@ gxgRC(n = 1000, betaB = 0.1, beta0 = 0, beta1 = 0.1, beta2 = 0.1, betaI = c(0,0.
 MAF2 = 0.05, varY = 1, alpha_level = 0.05, plot.pdf = T, plot.name = "gxgRC.pdf",nSim = 1000, SEED=1)
 ```
 
-## Output
+## Simulations Scenario Output
 For this example, we get the following matrix and corresponding plot:
 
 ```
@@ -40,3 +40,26 @@ For this example, we get the following matrix and corresponding plot:
 [3,]    0.442  0.125
 ```
 <img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRC.png" width="500">
+
+## Data Example
+Below is an example data analysis.
+
+```
+data("dataExample")
+x1<-dataExample[,"X1"] # SNP 1
+x2<-dataExample[,"X2"] # SNP 2
+y<-dataExample[,"Z"] # Outcome
+
+model1<-lm(y~x1+x2)
+model2<-lm(y~x1+x2+x1*x2)
+
+anova(model1,model2)
+```
+
+The output is as follows.
+
+```
+  Res.Df    RSS Df Sum of Sq      F Pr(>F)
+1    997 936.86                           
+2    996 936.19  1    0.6734 0.7164 0.3975
+```
