@@ -22,7 +22,7 @@ library(gxgRC)
 ?gxgRC # For details on this function
 ```
 
-## Simulations Scenario
+## Simulation Scenario
 For 1,000 subjects, we generate X1 to have a MAF of 0.20 and X2 to have an MAF of 0.05. The interaction between X1 and X2 on Y varies from 0, 0.1, to 0.2.
 
 ```
@@ -30,7 +30,7 @@ gxgRC(n = 1000, betaB = 0.1, beta0 = 0, beta1 = 0.1, beta2 = 0.1, betaI = c(0,0.
 MAF2 = 0.05, varY = 1, alpha_level = 0.05, plot.pdf = T, plot.name = "gxgRC.pdf",nSim = 1000, SEED=1)
 ```
 
-## Simulations Scenario Output
+## Simulation Scenario Output
 For this example, we get the following matrix and corresponding plot:
 
 ```
