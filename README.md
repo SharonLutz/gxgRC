@@ -34,9 +34,9 @@ MAF2 = 0.05, varY = 1, alpha_level = 0.05, plot.pdf = T, plot.name = "gxgRC.pdf"
 For this example, we get the following matrix and corresponding plot:
 
 ```
-     NOintP intP0 intP1 intP2
-[1,]   0.30  0.12  0.07  0.04
-[2,]   0.53  0.15  0.26  0.08
-[3,]   0.79  0.19  0.74  0.46
+       gxgNoInt gxgInt
+[1,]    0.310  0.059
+[2,]    0.389  0.077
+[3,]    0.442  0.125
 ```
 <img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRC.png" width="600">
