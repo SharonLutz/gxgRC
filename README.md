@@ -39,4 +39,4 @@ For this example, we get the following matrix and corresponding plot:
 [2,]    0.389  0.077
 [3,]    0.442  0.125
 ```
-<img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRC.png" width="600">
+<img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRC.png" width="400">
