@@ -3,9 +3,11 @@ The gxgRC R package computes the power to determine the association of a SNP of 
 
 ## Installation
 ```
-install.packages("devtools") # devtools must be installed first
+install.packages("devtools") # devtools must be installed first and only once
+```
 
-devtools::install_github("SharonLutz/gxgRC")
+```
+devtools::install_github("SharonLutz/gxgRC") #install for new updates
 ```
 
 ## Input
