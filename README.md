@@ -48,7 +48,7 @@ Below is an example data analysis.
 data("dataExample")
 x1<-dataExample[,"X1"] # SNP 1
 x2<-dataExample[,"X2"] # SNP 2
-y<-dataExample[,"Z"] # Outcome
+y<-dataExample[,"Y"] # Outcome
 
 model1<-lm(y~x1+x2)
 model2<-lm(y~x1+x2+x1*x2)
