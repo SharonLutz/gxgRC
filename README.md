@@ -35,9 +35,9 @@ For this example, we get the following matrix and corresponding plot:
 
 ```
        gxgNoInt gxgInt
-[1,]    0.310  0.059
-[2,]    0.389  0.077
-[3,]    0.442  0.125
+[1,]    0.310  0.052
+[2,]    0.389  0.071
+[3,]    0.442  0.144
 ```
 <img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRC.png" width="500">
 
