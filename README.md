@@ -50,7 +50,7 @@ x1<-dataExample[,"X1"] # SNP 1
 x2<-dataExample[,"X2"] # SNP 2
 y<-dataExample[,"Y"] # Outcome
 
-model1<-lm(y~x1+x2)
+model1<-lm(y~x1)
 model2<-lm(y~x1+x2+x1*x2)
 
 anova(model1,model2)
