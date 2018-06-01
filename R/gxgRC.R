@@ -55,8 +55,9 @@ gxgRC <- function(n=1000,betaB=0.1,beta0=0,beta1=0.1,beta2=0.1,betaI=c(0,0.1,0.2
       if(summary(fit1)$coefficients[2,4] < alpha_level){mat_results[bI.ind,"gxgNoInt"] <- mat_results[bI.ind,"gxgNoInt"] +1 }
       
       # fit2: With interaction
+      fitR <- lm(Y~X1)
       fit2 <- lm(Y~X1+X2+X1*X2)
-      if(anova(fit1,fit2)$P[2] < alpha_level){mat_results[bI.ind,"gxgInt"] <- mat_results[bI.ind,"gxgInt"] +1 }
+      if(anova(fitR,fit2)$P[2] < alpha_level){mat_results[bI.ind,"gxgInt"] <- mat_results[bI.ind,"gxgInt"] +1 }
       
       
     } # End of betaI loop
