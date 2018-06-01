@@ -59,7 +59,7 @@ anova(model1,model2)
 The output is as follows.
 
 ```
-  Res.Df    RSS Df Sum of Sq      F Pr(>F)
-1    997 999.49                           
-2    996 998.49  1     0.998 0.9955 0.3186
+    Res.Df     RSS          Df     Sum of Sq      F     Pr(>F)   
+1    998      1008.67                                
+2    996      998.49        2      10.176        5.0752 0.006413 **
 ```
