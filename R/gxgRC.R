@@ -1,12 +1,3 @@
-
-n=1000
-pX1=0.2
-gamma0=0
-gammaX1=0.2
-beta0=0
-betaX1=0.1
-betaX2=0.1
-	
 gxgRC <- function(n=1000,nSim=1000,MAF1=0.2,gamma0=0,gammaX1=0.2,
 beta0=0,betaX1=0.1,betaX2=0.1,betaI=seq(from=0.1,to=0.5,by=0.1),varY=1,
 alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",SEED=1){
