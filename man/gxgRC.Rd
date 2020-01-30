@@ -24,28 +24,25 @@ is the intercept for the association between the SNP X1 and the SNP X2 where log
 is the effect of SNP X1 on SNP X2 where logit(X2)=gamma0+gammaX1*X1
 }
   \item{beta0}{
-is the intercept for Y
+is the intercept for E[Y]=beta0+betaX1*X1+betaX2*X2+betaI*X1*X2
 }
-  \item{beta1}{
-is the association between X1 and Y
+  \item{betaX1}{
+is the association between X1 and Y for E[Y]=beta0+betaX1*X1+betaX2*X2+betaI*X1*X2
 }
-  \item{beta2}{
-is the association between X2 and Y
+  \item{betaX2}{
+is the association between X2 and Y for E[Y]=beta0+betaX1*X1+betaX2*X2+betaI*X1*X2
 }
   \item{betaI}{
-is the interaction between X1 and X2 on Y
-}
-  \item{MAF2}{
-is the MAF for X2
+is the interaction between X1 and X2 on Y for E[Y]=beta0+betaX1*X1+betaX2*X2+betaI*X1*X2
 }
   \item{varY}{
 is the variance for Y
 }
   \item{alpha_level}{
-is the significance level
+is the significance level, default 0.05
 }
   \item{plot.pdf}{
-is T to output a plot, is F to not output a plot
+equals T to output a plot, equals F to not output a plot
 }
   \item{plot.name}{
 is the name of the plot
@@ -55,7 +52,7 @@ sets the seed
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+Tests for the effect of a SNP on the outcome in the presence of epistasis.
 }
 \value{
 a matrix of estimates and p-values
@@ -64,17 +61,6 @@ a matrix of estimates and p-values
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+Sharon Lutz
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
-
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
