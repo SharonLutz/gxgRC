@@ -1,9 +1,0 @@
-Package: gxgRC
-Type: Package
-Title: This package looks at gene by gene interactions
-Version: 1.0
-Date: 2018-05-14
-Author: Annie Thwing, Sharon Lutz
-Maintainer: Annie Thwing <annie.thwing@ucdenver.edu>
-Description: This package looks at gene by gene interactions
-License: GPL-2
