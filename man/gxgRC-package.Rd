@@ -1,0 +1,10 @@
+\name{gxgRC-package}
+\alias{gxgRC-package}
+\alias{gxgRC-pkg}
+\docType{package}
+\title{
+\packageTitle{gxgRC}
+}
+\description{
+\packageDescription{gxgRC}
+}

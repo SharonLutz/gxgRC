@@ -1,0 +1,9 @@
+Package: gxgRC
+Type: Package
+Title: Examines the effect of a SNP on the outcome given another SNP both the outcome and the first SNP
+Version: 1.0
+Date: 2020-01-30
+Author: Sharon Lutz
+Maintainer: Sharon Lutz <smlutz@hsph.harvard.edu>
+Description: Examines the effect of a SNP on the outcome given another SNP both the outcome and the first SNP
+License: GPL-2
