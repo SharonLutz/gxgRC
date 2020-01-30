@@ -27,7 +27,7 @@ For 1,000 subjects, we generate X1 to have a MAF of 0.20 and X2 to have an MAF o
 
 ```
 gxgRC(n=1000,nSim=1000,MAF1=0.2,gamma0=0,gammaX1=0.2,
-beta0=0,betaX1=0.1,betaX2=0.1,betaI=seq(from=0.1,to=0.5,by=0.1),varY=1,
+beta0=0,betaX1=0,betaX2=0.2,betaI=seq(from=0.1,to=0.5,by=0.1),varY=1,
 alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",SEED=1)
 ```
 
@@ -35,12 +35,12 @@ alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",SEED=1)
 For this example, we get the following matrix and corresponding plot:
 
 ```
-     gxgNoInt gxgIntFull gxgIntReduced gxgResiduals
-[1,]      0.6        0.4           0.0          0.6
-[2,]      0.7        0.8           0.0          0.7
-[3,]      0.9        0.9           0.0          0.9
-[4,]      1.0        1.0           0.1          1.0
-[5,]      1.0        1.0           0.2          1.0
+     model0:X1 model1:X1 model2:X1&XI model2:X1 model2:XI
+[1,]     0.135     0.112        0.123     0.047     0.097
+[2,]     0.330     0.271        0.381     0.055     0.244
+[3,]     0.560     0.500        0.699     0.058     0.461
+[4,]     0.807     0.764        0.912     0.051     0.693
+[5,]     0.933     0.919        0.990     0.055     0.878
 ```
 <img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRC.png" width="500">
 
