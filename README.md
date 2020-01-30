@@ -42,5 +42,5 @@ For this example, we get the following matrix and corresponding plot:
 [4,]     0.807     0.764        0.912     0.051     0.693
 [5,]     0.933     0.919        0.990     0.055     0.878
 ```
-<img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRC.png" width="500">
+<img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRCplot.png" width="500">
 
