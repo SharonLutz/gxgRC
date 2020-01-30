@@ -1,3 +1,5 @@
+
+	
 gxgRC <- function(n=1000,nSim=1000,MAF1=0.2,gamma0=0,gammaX1=0.2,
 beta0=0,betaX1=0.1,betaX2=0.1,betaI=seq(from=0.1,to=0.5,by=0.1),varY=1,
 alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",SEED=1){
@@ -19,8 +21,8 @@ alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",SEED=1){
 ##############################################################
 # Create a total results matrix
 ##############################################################
- mat_results <- matrix(0,nrow=length(betaI),ncol=3)
-  colnames(mat_results) <- c("gxgNoInt","gxgIntFull","gxgIntRed")
+ mat_results <- matrix(0,nrow=length(betaI),ncol=4)
+  colnames(mat_results) <- c("gxgNoInt","gxgIntFull","gxgIntReduced","gxgResiduals")
      
 ##############################################################
 #cycle through betaI
@@ -59,8 +61,13 @@ alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",SEED=1){
 ##############################################################
       fitI <- lm(Y~X1+X2+X1*X2)
       if(anova(fitR,fitI)$P[2] < alpha_level){mat_results[bi,"gxgIntFull"] <- mat_results[bi,"gxgIntFull"] +1 }
-      if(summary(fitI)$coefficients[2,4] < alpha_level){mat_results[bi,"gxgIntRed"] <- mat_results[bi,"gxgIntRed"] +1 }
+      if(summary(fitI)$coefficients[2,4] < alpha_level){mat_results[bi,"gxgIntReduced"] <- mat_results[bi,"gxgIntReduced"] +1 }
       
+##############################################################
+# Fit model: Using residuals
+##############################################################
+fitResid<-lm(fitR$residuals~X1)
+if(summary(fitResid)$coefficients[2,4] < alpha_level){mat_results[bi,"gxgResiduals"] <- mat_results[bi,"gxgResiduals"] +1 }
       
 ##############################################################
 # end sims and save results
@@ -81,8 +88,8 @@ alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",SEED=1){
     plot(-1,-1, xlim=c(min(betaI),max(betaI)), ylim=c(0,1),xlab="betaI values",ylab="")
     points(betaI,mat_results[,"gxgNoInt"],type="b",lty=2,col=1,pch=1)
     points(betaI,mat_results[,"gxgIntFull"],type="b",lty=3,col=2,pch=2)
-    points(betaI,mat_results[,"gxgIntRed"],type="b",lty=4,col=3,pch=3)
-    legend("topleft",lty=c(2:4),col=c(1:3),pch=c(1:3),legend=c("gxgNoInt","gxgInt","gxgIntRed"))
+    points(betaI,mat_results[,"gxgIntReduced"],type="b",lty=4,col=3,pch=3)
+    legend("topleft",lty=c(2:4),col=c(1:3),pch=c(1:3),legend=c("gxgNoInt","gxgInt","gxgIntReduced"))
     dev.off()
   }
   
