@@ -23,16 +23,18 @@ alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",SEED=1){
  mat_results <- matrix(0,nrow=length(betaI),ncol=5)
   colnames(mat_results) <- c("model0:X1","model1:X1","model2:X1&XI","model2:X1","model2:XI")
      
-##############################################################
-#cycle through betaI
-##############################################################
-    for(bi in 1:length(betaI)){
  
 ##############################################################
 #cycle through simulations
 ##############################################################
   for(ii in 1:nSim){
-  	     
+if(floor(ii/100)==ceiling(ii/100)){print(paste("simulation",ii,"of",nSim))}
+    
+##############################################################
+#cycle through betaI
+##############################################################
+    for(bi in 1:length(betaI)){
+  
 ##############################################################
 #Generate the data, X1 SNP of interest, X2 SNP in LD, outcome Y
 ##############################################################     
