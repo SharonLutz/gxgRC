@@ -1,6 +1,15 @@
-gxgRC <- function(n=1000,betaB=0.1,beta0=0,beta1=0.1,beta2=0.1,betaI=c(0,0.1,0.2),
-MAF1=0.2,MAF2=0.05,varY=1,
-alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",nSim=1000,SEED=1){
+
+n=1000
+pX1=0.2
+gamma0=0
+gammaX1=0.2
+beta0=0
+betaX1=0.1
+betaX2=0.1
+	
+gxgRC <- function(n=1000,nSim=1000,MAF1=0.2,gamma0=0,gammaX1=0.2,
+beta0=0,betaX1=0.1,betaX2=0.1,betaI=seq(from=0.1,to=0.5,by=0.1),varY=1,
+alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",SEED=1){
   
 ##############################################################
   set.seed(SEED)
@@ -9,9 +18,10 @@ alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",nSim=1000,SEED=1){
 # Error checks
 ##############################################################
   if(MAF1<0|MAF1>1){stop("Error: MAF1 must be between 0 and 1")}
-  if(MAF2<0|MAF2>1){stop("Error: MAF2 must be between 0 and 1")}
   if(!(n>0)){stop("Error: n must be positive")}
   if(floor(n)!=ceiling(n)){stop("Error: n must be an integer")}
+  if(!(nSim>0)){stop("Error: nSim must be positive")}
+  if(floor(nSim)!=ceiling(nSim)){stop("Error: nSim must be an integer")}
   if(alpha_level<0|alpha_level>1){stop("Error: alpha_level must be between 0 and 1")}
   if(!(varY>0)){stop("Error: varY must be greater than 0")}
    
@@ -35,7 +45,7 @@ alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",nSim=1000,SEED=1){
 #Generate the data, X1 SNP of interest, X2 SNP in LD, outcome Y
 ##############################################################     
       # Generate  SNP of interest    
-      X1 <- rbinom(n,1,pX1) 
+      X1 <- rbinom(n,1,MAF1) 
       
       #generate SNP 2 from SNP 1
       logitX2<-gamma0+gammaX1*X1
