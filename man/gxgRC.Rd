@@ -1,19 +1,15 @@
 \name{gxgRC}
 \alias{gxgRC}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-gxgRC
-}
+\title{gxgRC}
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Tests for the effect of a SNP on the outcome in the presence of epistasis.
 }
 \usage{
-gxgRC(n = 1000, betaB = 0.1, beta0 = 0, beta1 = 0.1, beta2 = 0.1, betaI = c(0,0.1, 0.2), 
-MAF1 = 0.2, MAF2 = 0.05, varY = 1, alpha_level = 0.05, plot.pdf = T, plot.name = "gxgRC.pdf",
-nSim = 1000, SEED=1)
+gxgRC(n=1000,betaB=0.1,beta0=0,beta1=0.1,beta2=0.1,betaI=c(0,0.1,0.2),
+MAF1=0.2,MAF2=0.05,varY=1,
+alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",nSim=1000,SEED=1)
                
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{n}{
 is the sample size
