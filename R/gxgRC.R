@@ -87,10 +87,12 @@ model0 <- lm(Y~X1)
     # Put plot code here
     pdf(plot.name)
     plot(-1,-1, xlim=c(min(betaI),max(betaI)), ylim=c(0,1),xlab="betaI values",ylab="")
-    points(betaI,mat_results[,"model1:X1"],type="b",lty=2,col=1,pch=1)
-    points(betaI,mat_results[,"model2:X1&XI"],type="b",lty=3,col=2,pch=2)
-    points(betaI,mat_results[,"model2:X1"],type="b",lty=4,col=3,pch=3)
-    legend("topleft",lty=c(2:4),col=c(1:3),pch=c(1:3),legend=c("model1:X1","gxgInt","model2:X1"))
+    points(betaI,mat_results[,"model0:X1"],type="b",lty=2,col=1,pch=1)
+    points(betaI,mat_results[,"model1:X1"],type="b",lty=3,col=2,pch=2)
+    points(betaI,mat_results[,"model2:X1&XI"],type="b",lty=4,col=3,pch=3)
+    points(betaI,mat_results[,"model2:X1"],type="b",lty=5,col=4,pch=4)
+    points(betaI,mat_results[,"model2:XI"],type="b",lty=6,col=5,pch=5)
+    legend("topleft",lty=c(2:6),col=c(1:5),pch=c(1:5),legend=c("model0:X1","model1:X1","model2:X1&XI","model2:X1","model2:XI"))
     dev.off()
   }
   
