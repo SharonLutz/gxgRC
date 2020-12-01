@@ -84,7 +84,7 @@ model0 <- lm(Y~X1)
   if(plot.pdf){
     # Put plot code here
     pdf(plot.name)
-    plot(-1,-1, xlim=c(min(betaI),max(betaI)), ylim=c(0,1),xlab="betaI values",ylab="")
+    plot(-1,-1, xlim=c(min(betaI),max(betaI)), ylim=c(0,1.1),xlab="betaI values",ylab="")
     points(betaI,mat_results[,"model0:X1"],type="b",lty=2,col=1,pch=1)
     points(betaI,mat_results[,"model1:X1"],type="b",lty=3,col=2,pch=2)
     points(betaI,mat_results[,"model2:X1X2"],type="b",lty=4,col=3,pch=3)
