@@ -15,11 +15,11 @@ For n subjects, SNP X1 is generated from a binomial distribution with a mean spe
 
 logit\[P(X<sub>2</sub>\)] = &gamma;<sub>0</sub> + &gamma;<sub>1</sub> X<sub>1</sub> 
 
-(input: gamma0, gammaX1). The outcome Y is generated from a normal distribution with variance (input" varY) and mean as follows:
+(input: gamma0, gammaX1). The outcome Y is generated from a normal distribution with variance (input: varY) and mean as follows:
 
 E\[Y\] = &beta;<sub>0</sub> + &beta;<sub>1</sub> X<sub>1</sub> + &beta;<sub>2</sub> X<sub>2</sub> + &beta;<sub>I</sub> X<sub>1</sub> X<sub>2</sub>   
 
-See the manpage for more detail regarding the input of the gxgRC function.
+(input: beta0, betaX1, betaX2, betaI). See the manpage for more detail regarding the input of the gxgRC function.
 
 ```
 library(gxgRC)
@@ -27,7 +27,7 @@ library(gxgRC)
 ```
 
 ## Simulation Scenario
-For 1,000 subjects, we generate X1 to have a mean of 0.5. The interaction between X1 and X2 on Y varies from 0, 0.1, to 0.2.
+For 1,000 subjects, we generated X1 to have a mean of 0.5. X2 is generated with &gamma;<sub>0</sub> =0 and &gamma;<sub>1</sub> X<sub>1</sub>=0.3. The outcome Y is generated with &beta;<sub>0</sub>=0, &beta;<sub>1</sub> X<sub>1</sub>=0.3, &beta;<sub>1</sub> X<sub>2</sub>=0.3 and &beta;<sub>1</sub> X<sub>I</sub> vaires from 0.3 to 1 by 0.5. The code is as follows:
 
 ```
 gxgRC(n=1000,nSim=1000,MAF1=0.5,gamma0=0,gammaX1=0.3,
