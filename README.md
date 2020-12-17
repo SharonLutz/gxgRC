@@ -1,5 +1,5 @@
 ## gxgRC
-The gxgRC R package computes the power to determine the association of a SNP of interest with the outcome given that another SNP in the region is in weak LD with the SNP of interest.
+
 
 ## Installation
 ```
@@ -26,9 +26,9 @@ library(gxgRC)
 For 1,000 subjects, we generate X1 to have a MAF of 0.20 and X2 to have an MAF of 0.05. The interaction between X1 and X2 on Y varies from 0, 0.1, to 0.2.
 
 ```
-gxgRC(n=1000,nSim=1000,MAF1=0.2,gamma0=0,gammaX1=0.2,
-beta0=0,betaX1=0,betaX2=0.2,betaI=seq(from=0.1,to=0.5,by=0.1),varY=1,
-alpha_level=0.05,plot.pdf=T,plot.name="gxgRC.pdf",SEED=1)
+gxgRC(n=1000,nSim=1000,MAF1=0.5,gamma0=0,gammaX1=0.3,
+beta0=0,betaX1=0.3,betaX2=0.3,betaI=seq(from=0.3,to=1,by=0.05),varY=1,
+alpha_level=0.00000005,plot.pdf=T,plot.name="gxgRCexample.pdf",SEED=1)
 ```
 
 ## Simulation Scenario Output
