@@ -52,5 +52,5 @@ For this example, we get the following matrix and corresponding plot:
 [14,]     0.976     0.024         0     0.000     0.000
 [15,]     0.990     0.010         0     0.000     0.000
 ```
-<img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRCplot.png" width="500">
+<img src="https://github.com/SharonLutz/gxgRC/blob/master/gxgRCexample.png" width="500">
 
