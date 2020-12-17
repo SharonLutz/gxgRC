@@ -11,7 +11,11 @@ devtools::install_github("SharonLutz/gxgRC") #install for new updates
 ```
 
 ## Input
-For n subjects, SNP X1 is generated from a binomial distribution with a MAF specified by the user (input: MAF1). The second SNP X2 is generated to have an association with X1 specified by the user (input: betaB) and to have an MAF specified by the user (input: MAF2). The outcome Y is generated from a normal distribution with mean as follows:
+For n subjects, SNP X1 is generated from a binomial distribution with a mean specified by the user (input: MAF1). The second SNP X2 is generated from a logistic regression such that
+
+logit\[P(X<sub>2</sub>\)] = &gamma;<sub>0</sub> + &gamma;<sub>1</sub> X<sub>1</sub> 
+
+(input: gamma0, gammaX1). The outcome Y is generated from a normal distribution with variance (input" varY) and mean as follows:
 
 E\[Y\] = &beta;<sub>0</sub> + &beta;<sub>1</sub> X<sub>1</sub> + &beta;<sub>2</sub> X<sub>2</sub> + &beta;<sub>I</sub> X<sub>1</sub> X<sub>2</sub>   
 
@@ -23,7 +27,7 @@ library(gxgRC)
 ```
 
 ## Simulation Scenario
-For 1,000 subjects, we generate X1 to have a MAF of 0.20 and X2 to have an MAF of 0.05. The interaction between X1 and X2 on Y varies from 0, 0.1, to 0.2.
+For 1,000 subjects, we generate X1 to have a mean of 0.5. The interaction between X1 and X2 on Y varies from 0, 0.1, to 0.2.
 
 ```
 gxgRC(n=1000,nSim=1000,MAF1=0.5,gamma0=0,gammaX1=0.3,
